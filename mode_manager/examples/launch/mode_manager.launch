@@ -1,0 +1,10 @@
+<launch>
+    <node pkg="mode_manager" type="manager_node.py" name="ModeManager" output="screen" required="true">
+        <!-- always clear these two branches to clean up left-overs from a previous run -->
+        <rosparam command="delete" param="components"/>
+        <rosparam command="delete" param="modes"/>
+        <!-- this then sets the real configuration -->
+        <rosparam command="load" file="$(find mode_manager)/examples/config/example_modes.yaml"/>
+    </node>
+
+</launch>

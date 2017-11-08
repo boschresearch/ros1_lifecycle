@@ -1,0 +1,16 @@
+# goal message
+string target_mode
+---
+# result message
+string result_mode
+---
+# feedback message
+# the mode the system was in when the change request was received
+string start_mode
+# a possible intermediate switching mode. if no switching mode is defined
+# transition should be fairly instantenous
+string current_mode
+# where we want to end up
+string target_mode
+# a variable that is counted up from 1 every time a feedback message is sent 
+int32 progress

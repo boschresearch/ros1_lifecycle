@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="nodelet" type="nodelet" name="kinect_manager" args="manager" output="screen"/>
+</launch>

@@ -1,0 +1,4 @@
+<launch>
+  <test pkg="lifecycle" type="lifecycle_client-test" test-name="test_lifecycle_client"/>
+</launch>
+

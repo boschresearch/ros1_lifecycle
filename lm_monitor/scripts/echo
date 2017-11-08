@@ -1,0 +1,65 @@
+#!/usr/bin/env python
+from __future__ import print_function
+
+#ROS Imports
+import rospy
+
+#Python Imports
+import sys
+
+#Package Imports
+from lm_monitor.listener import LmEventListener
+
+## Prints the node status of the specified node/nodes which is configured with lifcycle manager
+## The node information are: {time_stamp : ros_time, transition : "Configure", end_state : "INACTIVE", result_code : "Success"}
+
+class Echo(object):
+    
+    def __init__(self, node_names):
+        self.node_names = node_names
+        self.listener = LmEventListener(self.Echo_Cb)
+    
+    def Echo_Cb(self, lm_events):
+        if (self.node_names == None):
+            self.displayAllNodeStatus(lm_events)
+        else:
+            for node_name in self.node_names:
+                print (node_name + ':\t ', end=" ")
+                try:
+                    self.displayNodeStatus(lm_events[node_name])
+                except KeyError:
+                    print ('Node not yet published the status')
+            print ()
+            
+    def displayAllNodeStatus(self, lm_events_buffer):
+        self.nodes = lm_events_buffer.keys()
+        for node in self.nodes:
+            node_status = lm_events_buffer[node]
+            print (node + ':\t ', end=" ")
+            print (node_status['time_stamp'], end=" ")
+            print (node_status['transition'], end=" ")
+            print (node_status['end_state'], end=" ")
+            print (node_status['result_code'])
+        print()
+    
+    def displayNodeStatus(self, node_status):
+        print (node_status['time_stamp'], end=" ")
+        print (node_status['transition'], end=" ")
+        print (node_status['end_state'], end=" ")
+        print (node_status['result_code'])
+        
+if __name__ == '__main__':
+    rospy.init_node('echo', anonymous=True)
+    
+    if len(sys.argv) < 2:
+        node_names = None
+    else:
+        node_names = sys.argv[1:]
+    
+    echo_obj = Echo(node_names)
+        
+    try:
+        while not rospy.is_shutdown():
+            pass
+    except rospy.ROSInterruptException:
+        pass

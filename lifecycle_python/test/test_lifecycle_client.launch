@@ -1,0 +1,3 @@
+<launch>
+  <test pkg="lifecycle_python" type="test_lifecycle_client.py" test-name="lifecycle_client"/>
+</launch>

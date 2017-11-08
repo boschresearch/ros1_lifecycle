@@ -1,0 +1,4 @@
+<launch>
+    <arg name="value"/>
+    <param name="/test/param" value="$(arg value)"/>
+</launch>

@@ -1,0 +1,6 @@
+<launch>
+    <node pkg="lifecycle_test_library" type="lifecycle_node_test.py" name="Test_Node" output="screen" required="true">
+        <rosparam command="load" file="$(find lifecycle_test_library)/examples/config/example_test.yaml"/>
+    </node>
+
+</launch>

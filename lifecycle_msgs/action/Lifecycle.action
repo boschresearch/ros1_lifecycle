@@ -1,0 +1,32 @@
+# primary states
+int8 PSTATE_UNCONFIGURED    = 0
+int8 PSTATE_INACTIVE        = 1
+int8 PSTATE_ACTIVE          = 2
+int8 PSTATE_FINALIZED       = 3
+# transition states
+int8 TSTATE_CONFIGURING     = 10
+int8 TSTATE_CLEANING_UP     = 11
+int8 TSTATE_SHUTTING_DOWN   = 12
+int8 TSTATE_ERROR_PROCESSING= 13
+int8 TSTATE_ACTIVATING      = 14
+int8 TSTATE_DEACTIVATING    = 15
+# transitions
+int8 EV_CONFIGURE           = 20
+int8 EV_CLEANUP             = 21
+int8 EV_ACTIVATE            = 22
+int8 EV_DEACTIVATE          = 23
+int8 EV_SHUTDOWN            = 24
+int8 EV_ERROR               = 25
+# Result codes
+int8 EV_SUCCESS             = 26
+int8 EV_FAILURE             = 27
+
+# goal message
+int8 transition
+---
+# result message
+int8 end_state
+---
+# feedback message
+int8 result_code
+int8 intermediate_state

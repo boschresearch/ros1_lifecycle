@@ -1,0 +1,42 @@
+modes:
+  launched:
+    component_configuration:
+      param: inactive
+      kinect: inactive
+      jai: inactive
+  F1:
+    inherits: launched
+    component_configuration:
+      param: active
+      kinect: active
+  F2:
+    inherits: launched
+    component_configuration:
+      param: active
+      jai: active
+initial_mode: launched
+components:
+  param:
+    configs:
+      inactive:
+        entry:
+          type: roslaunch
+          launch_file: $(find mode_manager)/examples/launch/set_param_to_arg.launch
+          args: value:=inactive
+      active:
+        entry:
+          type: roslaunch
+          launch_file: $(find mode_manager)/examples/launch/set_param_to_arg.launch
+          args: value:=active
+    initial_config: inactive
+  kinect:
+    configs:
+      active:
+        type: roslaunch
+        launch_file: $(find mode_manager)/examples/launch/kinect.launch
+      inactive:
+        type: none
+    initial_config: inactive
+  jai:
+    extends: ros2_lifecycle
+

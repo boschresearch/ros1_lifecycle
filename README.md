@@ -4,7 +4,7 @@
 
 ros1_lifecycle provides a component lifecycle implementation for ROSv1.
 
-* **Lifecycle** provides the abstract classes for implementing Life-cycle mechanism to application nodes.  See [ROS2 Managed Nodes](http://design.ros2.org/articles/node_lifecycle.html) for a comprehensive description of the core concepts of Node life-cycle. This document has been copied from [http://design.ros2.org/articles/node_lifecycle.html] in May 2016.
+* **Lifecycle** provides the abstract classes for implementing Life-cycle mechanism to application nodes.  See [ROS2 Managed Nodes](http://design.ros2.org/articles/node_lifecycle.html) for a comprehensive description of the core concepts of Node life-cycle.
 * **Lifecycle_python** is similar to Lifecycle but implemented in python.
 * **Lifecycle_test_library** provides helper templates/classes to test a Life-cycle managed nodes.
 * **Mode_manager** is responsible for knowing and switching the system's global mode.

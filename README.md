@@ -1,18 +1,10 @@
-# bosch_arch_Lifecycle
+# ROS1 Lifecycle
 
-* [About the Lifecycle](#about)
-* [License and Organization](#license)
-* [Maintainers and Contributors](#maintainers)
-* [Build Instructions](#build)
-* [Dependencies on OSS Components](#dependencies)
-* [Continuous Integration](#ci)
-
-
-## <a name="about"/>About bosch_arch_lifecycle
+## <a name="about"/>About ros1_lifecycle
 
 ros1_lifecycle provides a component lifecycle implementation for ROSv1.
 
-* **Lifecycle** provides the abstract classes for implementing Life-cycle mechanism to application nodes.  See [**lifecycle/docs/Managed_nodes.pdf**](http://design.ros2.org/articles/node_lifecycle.html) for a comprehensive description of the core concepts of Node life-cycle. This document has been copied from [http://design.ros2.org/articles/node_lifecycle.html] in May 2016.
+* **Lifecycle** provides the abstract classes for implementing Life-cycle mechanism to application nodes.  See [ROS2 Managed Nodes](http://design.ros2.org/articles/node_lifecycle.html) for a comprehensive description of the core concepts of Node life-cycle. This document has been copied from [http://design.ros2.org/articles/node_lifecycle.html] in May 2016.
 * **Lifecycle_python** is similar to Lifecycle but implemented in python.
 * **Lifecycle_test_library** provides helper templates/classes to test a Life-cycle managed nodes.
 * **Mode_manager** is responsible for knowing and switching the system's global mode.
@@ -32,19 +24,10 @@ Maintainer:
 
 * [Luetkebohle Ingo (CR/AEX3)](https://github.com/iluetkeb)
  
-Contributors:
+Authors:
 
-* [Ralph Lange (CR/AEE1)](https://github.com/iluetkeb)
-
-
-## <a name="build"/>Build Instructions
-
-This repository can be build easily on Linux with [ROS-Indigo](http://wiki.ros.org/indigo) using [Catkin_Make](http://wiki.ros.org/catkin/commands/catkin_make). The Catkin_make tools recommends out-of-source builds, to not pollute the source tree with object files and other build artefacts. For example, for building the repository, proceed as follows:
-
-* Create a [catkin workspace](http://wiki.ros.org/ROS/Tutorials).
-* Clone repository (e.g., `git clone https://github.com/bosch-robotics-cr/ros1_lifecycle`) into the src folder
-* In the catkin workspace folder call catkin_make.
-
-For executing the unit tests simply call `catkin_make run_tests` within your workspace folder.
+* Yeshwanth Sampangi (Bosch Engineering India)
+* [Luetkebohle Ingo (Bosch Germany)](https://github.com/iluetkeb)
+* [Ralph Lange (Bosch Germany)](https://github.com/ralph-lange)
 
 

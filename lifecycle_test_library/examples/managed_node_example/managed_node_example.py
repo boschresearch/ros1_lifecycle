@@ -74,9 +74,9 @@ if __name__ == '__main__':
             #Assign the active callback function to the handle
             self._handle_add_two_ints = self._service_callback_active
             return True
-        
-        def _on_decativate(self):
-            print ('_on_decativate ')
+
+        def _on_deactivate(self):
+            print ('_on_deactivate ')
             self._stop_my_active_thread()
             #Assign the inactive callback function to the handle
             self._handle_add_two_ints = self._service_callback_inactive

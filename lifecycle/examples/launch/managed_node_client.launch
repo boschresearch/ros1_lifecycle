@@ -1,10 +1,11 @@
+<?xml version="1.0"?>
 <launch>
-    
+
     <node pkg="lifecycle" type="lifecycle_example_managed_node" name="My_Node" output="screen" required="true">
     </node>
-    
+
     <node pkg="lifecycle" type="lifecycle_example_client" name="My_Client" output="screen" required="true">
         <param name="/lm_node_name" value="My_Node" type="str" />
     </node>
-    
+
 </launch>

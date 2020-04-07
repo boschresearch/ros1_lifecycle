@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <test pkg="lm_monitor" type="test_lm_monitor.py" test-name="lm_monitor"/>
 </launch>

@@ -19,6 +19,7 @@
 #include <string>
 #include <list>
 
+#include <boost/format.hpp>
 #include <boost/function.hpp>
 #include <boost/bind.hpp>
 #include <boost/shared_ptr.hpp>

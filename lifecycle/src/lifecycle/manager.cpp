@@ -19,6 +19,7 @@
 #include "lifecycle/manager.h"
 #include "lifecycle/lifecycle_model.h"
 #include "lifecycle/broadcaster.h"
+#include <boost/format.hpp>
 #include <ros/callback_queue_interface.h>
 
 namespace ros { namespace lifecycle {

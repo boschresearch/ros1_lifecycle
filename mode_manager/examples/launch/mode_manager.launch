@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
     <node pkg="mode_manager" type="manager_node.py" name="ModeManager" output="screen" required="true">
         <!-- always clear these two branches to clean up left-overs from a previous run -->

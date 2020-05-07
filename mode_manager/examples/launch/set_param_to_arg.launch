@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
     <arg name="value"/>
     <param name="/test/param" value="$(arg value)"/>

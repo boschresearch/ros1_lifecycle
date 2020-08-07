@@ -8,7 +8,7 @@ import rospy
 import threading
 
 from lifecycle_msgs.msg import lm_events
-from monitor import LmMonitor
+from lm_monitor.monitor import LmMonitor
 
 class ListenerCbException(Exception):
     """

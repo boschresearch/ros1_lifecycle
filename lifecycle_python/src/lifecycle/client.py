@@ -23,7 +23,7 @@ from actionlib.action_client import CommState
 from actionlib_msgs.msg import GoalStatus
 
 from lifecycle_msgs.msg import LifecycleGoal, LifecycleAction, Lifecycle
-from lifecycle_model import LifecycleModel
+from lifecycle.lifecycle_model import LifecycleModel
 
 LIFECYCLE_ACTION_NAME = "lifecycle"
 LIFECYCLE_STATE_TOPIC = "lifecycle_state"

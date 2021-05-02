@@ -59,7 +59,7 @@ LifecycleManager::LifecycleManager(const ros::NodeHandle& nh) :
     
     setTransitionCallback(ERROR, boost::bind(&LifecycleManager::activeEx_cb, this) );
 
-    state_pub_ = nh_.advertise<lifecycle_msgs::Lifecycle>(LIFECYCLE_STATE_TOPIC, true);
+    state_pub_ = nh_.advertise<lifecycle_msgs::Lifecycle>(LIFECYCLE_STATE_TOPIC, 1, true);
     as_.registerGoalCallback(boost::bind(&LifecycleManager::goalCb, this));
 }
 

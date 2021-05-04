@@ -23,11 +23,10 @@ bosch\_arch\_lifecycle is hosted at [https://github.com/bosch-robotics-cr/ros1_l
 Maintainer:
 
 * [Luetkebohle Ingo (CR/AEX3)](https://github.com/iluetkeb)
- 
+
 Authors:
 
 * Yeshwanth Sampangi (Bosch Engineering India)
 * [Luetkebohle Ingo (Bosch Germany)](https://github.com/iluetkeb)
 * [Ralph Lange (Bosch Germany)](https://github.com/ralph-lange)
-
 

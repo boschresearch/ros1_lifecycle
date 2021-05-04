@@ -4,7 +4,7 @@ Want to contribute? Great! You can do so through the standard GitHub pull
 request model. For large contributions we do encourage you to file a ticket in
 the GitHub issues tracking system prior to any code development to coordinate
 with the tracetools development team early in the process. Coordinating up
-front helps to avoid frustration later on.  Please do ... 
+front helps to avoid frustration later on.  Please do ...
 
 Your contribution must be licensed under the Apache-2.0 license, the license
 used by this project.
@@ -32,7 +32,7 @@ By making a contribution to this project, I certify that:
 
 (a) The contribution was created in whole or in part by me and I
     have the right to submit it under the "Apache License, Version 2.0"
-    ("Apache-2.0"); 
+    ("Apache-2.0");
 
 or
 
@@ -113,5 +113,4 @@ holder(s) to the [NOTICE](NOTICE) file as part of your contribution.
 [DCO]: http://web.archive.org/web/20070306195036/http://osdlab.org/newsroom/press_releases/2004/2004_05_24_dco.html
 
 [SubmittingPatches]: https://github.com/wking/signed-off-by/blob/7d71be37194df05c349157a2161c7534feaf86a4/Documentation/SubmittingPatches
-
 

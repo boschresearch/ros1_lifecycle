@@ -30,7 +30,7 @@ class ManagedNode(object):
         self._lm.set_transition_callback(Transition.CONFIGURE, self._on_configure)
         self._lm.set_transition_callback(Transition.CLEANUP, self._on_cleanup)
         self._lm.set_transition_callback(Transition.ACTIVATE, self._on_activate)
-        self._lm.set_transition_callback(Transition.DEACTIVATE, self._on_decativate)
+        self._lm.set_transition_callback(Transition.DEACTIVATE, self._on_deactivate)
         self._lm.set_transition_callback(Transition.SHUTDOWN, self._on_shutdown)
         self._lm.set_error_cb(self._on_error)
         #start the action server
@@ -50,8 +50,8 @@ class ManagedNode(object):
     @abstractmethod
     def _on_activate(self):
         return True
-        
-    def _on_decativate(self):
+
+    def _on_deactivate(self):
         return False
         
     def _on_shutdown(self):

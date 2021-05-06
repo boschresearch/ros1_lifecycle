@@ -322,9 +322,9 @@ class TestManagedNode(unittest.TestCase):
             def _on_activate(self):
                 print '_on_activate ' 
                 return True
-            
-            def _on_decativate(self):
-                print '_on_decativate ' 
+
+            def _on_deactivate(self):
+                print '_on_deactivate '
                 return True
             
             def _on_shutdown(self):

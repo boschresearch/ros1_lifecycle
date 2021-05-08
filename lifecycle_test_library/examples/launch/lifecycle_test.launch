@@ -4,4 +4,5 @@
         <rosparam command="load" file="$(find lifecycle_test_library)/examples/config/example_test.yaml"/>
     </node>
 
+    <node pkg="lifecycle_test_library" type="managed_node_example.py" name="Example_Node" output="screen" />
 </launch>

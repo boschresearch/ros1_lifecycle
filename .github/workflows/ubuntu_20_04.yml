@@ -1,0 +1,77 @@
+name: Noetic ROS CI
+
+on: [push]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os_distro: [[ubuntu-20.04, noetic]]
+    runs-on: ${{ matrix.os_distro[0] }}
+    env:
+      ROS_CI_DESKTOP: "`lsb_release -cs`"  # e.g. [trusty|xenial|...]
+      ROS_DISTRO: ${{ matrix.os_distro[1] }}
+      ACCEPT_EULA: true
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          path: catkin_ws/src/ros1_lifecycle
+      ### ROS ###
+      - name: Setup for ROS ${{ matrix.os_distro[1] }} install
+        run: |
+            sudo sh -c "echo \"deb http://packages.ros.org/ros/ubuntu $ROS_CI_DESKTOP main\" > /etc/apt/sources.list.d/ros-latest.list"
+            # this breaks catkin
+            # sudo sh -c "echo \"deb http://packages.ros.org/ros-testing/ubuntu `lsb_release -cs` main\" > /etc/apt/sources.list.d/ros1-testing.list"
+            sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+            sudo apt-get update -y
+            sudo apt-get upgrade -y
+            sudo apt-get install -y dpkg
+      - name: Install ROS basic packages
+        run: |
+            sudo apt-get install -y python3-catkin-pkg
+            sudo apt-get install -y python3-catkin-tools
+            sudo apt-get install -y python3-rosdep
+            sudo apt-get install -y python3-wstool
+            sudo apt-get install -y python3-osrf-pycommon
+            sudo apt-get install -y ros-cmake-modules
+            sudo apt-get install -y ros-$ROS_DISTRO-ros-base
+            source /opt/ros/$ROS_DISTRO/setup.bash
+            sudo rosdep init
+            rosdep update
+      - name: Install ROS additional packages with rosdep
+        run: |
+            source /opt/ros/$ROS_DISTRO/setup.bash
+            cd catkin_ws
+            rosdep install --from-paths src --ignore-src -r -s  # do a dry-run first
+            rosdep install --from-paths src --ignore-src -r -y
+      - name: build
+        run: |
+          source /opt/ros/$ROS_DISTRO/setup.bash
+          cd catkin_ws
+          catkin config --install --cmake-args -DCMAKE_BUILD_TYPE=Release
+          catkin build --no-status
+          source install/setup.bash
+      - name: test import
+        run: |
+          cd catkin_ws
+          source install/setup.bash
+          which python
+          python3 --version
+          # very basic test which may reveal a change made for python2 breaks here in python3
+          python3 -c "import lifecycle.managed_node"
+          python3 -c "from lifecycle.lifecycle_model import State, Transition, Result_Code, LifecycleModel"
+      - name: test devel build
+        run: |
+          cd catkin_ws
+          rm -rf .catkin_tools build install logs
+          source /opt/ros/$ROS_DISTRO/setup.bash
+          catkin build --no-status
+          source devel/setup.bash
+      - name: test devel imports and roslaunch
+        run: |
+          cd catkin_ws
+          source devel/setup.bash
+          # very basic test which may reveal a change made for python2 breaks here in python3
+          python3 -c "import lifecycle.managed_node"
+          python3 -c "from lifecycle.lifecycle_model import State, Transition, Result_Code, LifecycleModel"
+          roslaunch `rospack find lifecycle_test_library`/examples/launch/lifecycle_test.launch

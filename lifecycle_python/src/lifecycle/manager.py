@@ -6,7 +6,7 @@ import rospy
 import actionlib
 
 from lifecycle_msgs.msg import LifecycleGoal, LifecycleAction, LifecycleResult, Lifecycle
-from lifecycle_model import State, Transition, Result_Code, LifecycleModel
+from lifecycle.lifecycle_model import State, Transition, Result_Code, LifecycleModel
 from lifecycle.broadcaster import LmEventBroadcaster
 
 LIFECYCLE_ACTION_NAME = "lifecycle"

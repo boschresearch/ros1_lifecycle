@@ -15,7 +15,7 @@ ros1_lifecycle provides a component lifecycle implementation for ROSv1.
 
 bosch\_arch\_lifecycle is currently licensed under the Apache Software License v2, cf. [LICENSE](LICENSE).
 
-bosch\_arch\_lifecycle is hosted at [https://github.com/bosch-robotics-cr/ros1_lifecycle]
+bosch\_arch\_lifecycle is hosted at https://github.com/boschresearch/ros1_lifecycle.
 
 
 ## <a name="maintainers"/>Maintainers and Contributors
